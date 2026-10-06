@@ -27,5 +27,5 @@ jobs:
         with:
           php-version: '7.3'
           tools: composer:v2
-      - run: composer config --global allow-plugins true && composer install --no-interaction --no-progress --no-scripts
-      - run: composer check
+      - run: composer install --no-interaction --no-progress --no-scripts --no-plugins
+      - run: composer --no-plugins check
