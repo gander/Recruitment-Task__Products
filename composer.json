@@ -24,6 +24,8 @@
         "symfony/yaml": "5.1.*"
     },
     "require-dev": {
+        "rector/rector": "^1.2",
+        "symplify/easy-coding-standard": "^13.3"
     },
     "config": {
         "optimize-autoloader": true,
@@ -61,6 +63,18 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "rector": "rector process --dry-run",
+        "rector:fix": "rector process",
+        "ecs": "ecs check",
+        "ecs:fix": "ecs check --fix",
+        "check": [
+            "@rector",
+            "@ecs"
+        ],
+        "check:fix": [
+            "@rector:fix",
+            "@ecs:fix"
         ]
     },
     "conflict": {
