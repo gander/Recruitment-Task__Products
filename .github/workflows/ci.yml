@@ -2,10 +2,11 @@ name: CI
 
 on:
   push:
+    branches: [main]
   pull_request:
 
 jobs:
-  ci:
+  checks:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -17,3 +18,14 @@ jobs:
       - run: composer audit
         continue-on-error: true
       - run: docker compose config -q
+
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '7.3'
+          tools: composer:v2
+      - run: composer config --global allow-plugins true && composer install --no-interaction --no-progress --no-scripts
+      - run: composer check
