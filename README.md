@@ -1,6 +1,6 @@
 # Recruitment Task: Symfony API Products
 
-[![CI](https://github.com/gander/Recruitment-Task__Symfony-API-Products/actions/workflows/ci.yml/badge.svg)](https://github.com/gander/Recruitment-Task__Symfony-API-Products/actions/workflows/ci.yml)
+[![CI](https://github.com/gander/Recruitment-Task__Products/actions/workflows/ci.yml/badge.svg)](https://github.com/gander/Recruitment-Task__Products/actions/workflows/ci.yml)
 
 Zadanie: REST API w Symfony z jednym endpointem `POST /api/products`, który dodaje produkt do bazy SQLite. Żądanie JSON jest walidowane (puste lub niepoprawne body i błędne pola zwracają 400 z listą błędów), a poprawny produkt zapisuje się przez Doctrine i zwraca 201 z jego identyfikatorem.
 
