@@ -22,7 +22,8 @@ jobs:
           php-version: '8.4'
           tools: composer:v2
       - run: composer validate --strict --no-check-publish
-      - run: composer audit
+      - run: composer audit --locked --no-dev --abandoned=report
+      - run: composer audit --locked
         continue-on-error: true
       - run: docker compose config -q
 
@@ -84,6 +85,11 @@ jobs:
         run: |
           curl --retry 30 --retry-all-errors --retry-delay 2 -sf -X POST http://localhost:8000/api/products -H 'content-type: application/json' --data '{"name": "Foo Bar","price": "123.45"}' | grep -q '"status":true'
           test "$(curl -s -o /dev/null -w '%{http_code}' -X POST http://localhost:8000/api/products -H 'content-type: application/json' --data '{}')" = 400
+      - name: Framework lint
+        run: |
+          docker compose exec -T app php bin/console lint:container
+          docker compose exec -T app php bin/console lint:yaml config --parse-tags
+          docker compose exec -T app php bin/console doctrine:schema:validate
       - if: failure()
         run: docker compose logs
       - if: always()
