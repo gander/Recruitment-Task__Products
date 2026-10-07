@@ -2,12 +2,12 @@
 
 [![CI](https://github.com/gander/Recruitment-Task__Products/actions/workflows/ci.yml/badge.svg)](https://github.com/gander/Recruitment-Task__Products/actions/workflows/ci.yml)
 
-Zadanie: REST API w Symfony z jednym endpointem `POST /api/products`, który dodaje produkt do bazy SQLite. Żądanie JSON jest walidowane (puste lub niepoprawne body i błędne pola zwracają 400 z listą błędów), a poprawny produkt zapisuje się przez Doctrine i zwraca 201 z jego identyfikatorem.
+Task: a Symfony REST API with a single `POST /api/products` endpoint that adds a product to a SQLite database. The JSON request is validated (an empty or invalid body and invalid fields return 400 with a list of errors); a valid product is saved through Doctrine and returned with 201 and its identifier.
 
 ## Requirements
 
-- Docker Engine z Docker Compose v2 (jedyna zależność; PHP ani Composer na hoście nie są potrzebne).
-- `curl` do przykładów użycia.
+- Docker Engine with Docker Compose v2 (the only dependency; neither PHP nor Composer is needed on the host).
+- `curl` for the usage examples.
 
 ## Install
 
@@ -15,7 +15,7 @@ Zadanie: REST API w Symfony z jednym endpointem `POST /api/products`, który dod
 docker compose up --build -d --wait
 ```
 
-Kontener przy starcie wykonuje migracje Doctrine.
+On start the container runs the Doctrine migrations.
 
 ## Usage
 
@@ -27,7 +27,7 @@ curl --retry 30 --retry-all-errors --retry-delay 2 \
   --data '{"name": "Foo Bar","price": "123.45"}'
 ```
 
-Pierwsza odpowiedź może potrwać kilka sekund. Przykład błędnego żądania (400):
+The first response may take a few seconds. Example of an invalid request (400):
 
 ```bash
 curl --request POST \
@@ -38,7 +38,7 @@ curl --request POST \
 
 ## Test
 
-Projekt nie zawiera testów; CI uruchamia `composer validate`, `composer audit` i `docker compose config`.
+The project has no tests; CI runs `composer validate`, `composer audit` and `docker compose config`.
 
 ```bash
 docker compose run --rm --no-deps app composer validate --no-check-publish
@@ -46,7 +46,7 @@ docker compose run --rm --no-deps app composer validate --no-check-publish
 
 ## Override
 
-Lokalne zmiany (np. montowanie kodu do kontenera) trzymaj w `compose.override.yml`, ignorowanym przez git:
+Keep local changes (e.g. mounting the code into the container) in `compose.override.yml`, which is ignored by git:
 
 ```bash
 cat > compose.override.yml <<'OVERRIDE'
