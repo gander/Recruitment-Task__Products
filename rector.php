@@ -8,6 +8,7 @@ return RectorConfig::configure()
     ->withPaths([
         __DIR__ . '/src',
     ])
+    ->withAttributesSets(symfony: true, doctrine: true)
     ->withComposerBased(symfony: true)
     ->withSymfonyContainerXml(__DIR__ . '/var/cache/dev/App_KernelDevDebugContainer.xml')
     ->withTypeCoverageLevel(0)
