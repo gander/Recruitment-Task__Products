@@ -10,7 +10,7 @@ return RectorConfig::configure()
         __DIR__ . '/tests',
     ])
     ->withAttributesSets(symfony: true, doctrine: true)
-    ->withComposerBased(phpunit: true, symfony: true)
+    ->withComposerBased(phpunit: true, symfony: true, doctrine: true)
     ->withSymfonyContainerXml(__DIR__ . '/var/cache/dev/App_KernelDevDebugContainer.xml')
     ->withTypeCoverageLevel(0)
     ->withDeadCodeLevel(0)

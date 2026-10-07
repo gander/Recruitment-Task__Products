@@ -1,12 +1,6 @@
 {
-    "doctrine/cache": {
-        "version": "1.10.2"
-    },
     "doctrine/collections": {
         "version": "1.6.7"
-    },
-    "doctrine/common": {
-        "version": "3.0.2"
     },
     "doctrine/dbal": {
         "version": "2.11.3"
