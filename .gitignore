@@ -14,3 +14,4 @@
 ###> phpunit/phpunit ###
 /.phpunit.result.cache
 ###< phpunit/phpunit ###
+/config/reference.php
