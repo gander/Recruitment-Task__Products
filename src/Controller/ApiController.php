@@ -9,29 +9,26 @@ use App\Helper\ViolationsMapper;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Validator\Constraints\Json;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-/**
- * @Route("/api", name="api")
- */
+#[Route(path: '/api', name: 'api')]
 class ApiController extends AbstractController
 {
     public function __construct(private readonly \Doctrine\Persistence\ManagerRegistry $managerRegistry)
     {
     }
     /**
-     * @Route("/products", methods={"POST"})
-     *
      * @param Request $request
      * @param SerializerInterface $serializer
      * @param ValidatorInterface $validator
      * @param ViolationsMapper $mapper
      * @return JsonResponse
      */
+    #[Route(path: '/products', methods: ['POST'])]
     public function addProduct(
         Request $request,
         SerializerInterface $serializer,
