@@ -5,7 +5,7 @@
         {
             "description": "Stay on the Symfony 7.x line: a major hop (8.x) is a planned upgrade, not an automatic update",
             "matchPackageNames": ["symfony/*"],
-            "allowedVersions": "<8"
+            "allowedVersions": "<9"
         }
     ]
 }
