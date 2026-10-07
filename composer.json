@@ -28,6 +28,9 @@
         "symplify/easy-coding-standard": "^13.3"
     },
     "config": {
+        "platform": {
+            "php": "8.2.0"
+        },
         "optimize-autoloader": true,
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
