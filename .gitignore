@@ -10,3 +10,7 @@
 /vendor/
 ###< symfony/framework-bundle ###
 /compose.override.yml
+
+###> phpunit/phpunit ###
+/.phpunit.result.cache
+###< phpunit/phpunit ###

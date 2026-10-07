@@ -38,11 +38,13 @@ curl --request POST \
 
 ## Test
 
-The project has no tests; CI runs `composer validate`, `composer audit` and `docker compose config`.
+Unit tests (PHPUnit) cover the controller, the entity and the violations mapper:
 
 ```bash
-docker compose run --rm --no-deps app composer validate --no-check-publish
+docker compose run --rm --no-deps app vendor/bin/phpunit
 ```
+
+CI additionally runs `composer validate`, `composer audit`, `docker compose config`, Rector and ECS.
 
 ## Override
 
