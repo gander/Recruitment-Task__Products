@@ -20,6 +20,9 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
  */
 class ApiController extends AbstractController
 {
+    public function __construct(private readonly \Doctrine\Persistence\ManagerRegistry $managerRegistry)
+    {
+    }
     /**
      * @Route("/products", methods={"POST"})
      *
@@ -55,7 +58,7 @@ class ApiController extends AbstractController
             ], 400);
         }
 
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->managerRegistry->getManager();
         $em->persist($product);
         $em->flush();
 
