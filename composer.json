@@ -24,7 +24,7 @@
         "symfony/yaml": "5.4.*"
     },
     "require-dev": {
-        "rector/rector": "^1.2",
+        "rector/rector": "^2.0",
         "symplify/easy-coding-standard": "^13.3"
     },
     "config": {
