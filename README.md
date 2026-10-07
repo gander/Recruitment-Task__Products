@@ -19,6 +19,8 @@ On start the container runs the Doctrine migrations.
 
 ## Usage
 
+Create a product (the first response may take a few seconds):
+
 ```bash
 curl --retry 30 --retry-all-errors --retry-delay 2 \
   --request POST \
@@ -27,7 +29,13 @@ curl --retry 30 --retry-all-errors --retry-delay 2 \
   --data '{"name": "Foo Bar","price": "123.45"}'
 ```
 
-The first response may take a few seconds. Example of an invalid request (400):
+Expected response, status 201:
+
+```json
+{"status":true,"product":1}
+```
+
+An invalid request:
 
 ```bash
 curl --request POST \
@@ -36,15 +44,27 @@ curl --request POST \
   --data '{}'
 ```
 
-## Test
+Expected response, status 400:
 
-Unit tests (PHPUnit) cover the controller, the entity and the violations mapper:
-
-```bash
-docker compose run --rm --no-deps app vendor/bin/phpunit
+```json
+{"status":false,"errors":[{"property":"name","message":"This value should not be blank."},{"property":"price","message":"This value should not be blank."}]}
 ```
 
-CI additionally runs `composer validate`, `composer audit`, `docker compose config`, Rector and ECS.
+## Test
+
+Run the whole test suite (PHPUnit) in Docker:
+
+```bash
+docker compose run --rm --build --no-deps app composer test
+```
+
+Run the quality checks (Rector dry run and ECS), which CI runs too:
+
+```bash
+docker compose run --rm --build --no-deps app composer check
+```
+
+CI (`.github/workflows/ci.yml`) runs the jobs `checks` (`composer validate`, `composer audit`, `docker compose config`), `quality`, `tests` (PHP 8.4, plus a non-blocking PHP 8.5 run), `outdated` and `smoke` (builds the image and replays the requests from Usage). Optional pre-commit hooks that run Rector, ECS and `swiss-knife breakpoint` in Docker: `lefthook install`.
 
 ## Override
 
