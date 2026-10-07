@@ -29,3 +29,4 @@ jobs:
           tools: composer:v2
       - run: composer install --no-interaction --no-progress --no-scripts --no-plugins
       - run: composer --no-plugins check
+      - run: vendor/bin/phpunit
