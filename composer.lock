@@ -7201,16 +7201,16 @@
         },
         {
             "name": "symplify/easy-coding-standard",
-            "version": "13.3.10",
+            "version": "13.3.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ecsphp/ecs.git",
-                "reference": "c1fea8ed9dabe029579bd9ad7e079f56ed81ef14"
+                "reference": "3e1b33d0f8900ce8df7dfde518e832dc0b188462"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ecsphp/ecs/zipball/c1fea8ed9dabe029579bd9ad7e079f56ed81ef14",
-                "reference": "c1fea8ed9dabe029579bd9ad7e079f56ed81ef14",
+                "url": "https://api.github.com/repos/ecsphp/ecs/zipball/3e1b33d0f8900ce8df7dfde518e832dc0b188462",
+                "reference": "3e1b33d0f8900ce8df7dfde518e832dc0b188462",
                 "shasum": ""
             },
             "require": {
@@ -7243,10 +7243,10 @@
             ],
             "support": {
                 "issues": "https://github.com/ecsphp/ecs/issues",
-                "source": "https://github.com/ecsphp/ecs/tree/13.3.10"
+                "source": "https://github.com/ecsphp/ecs/tree/13.3.11"
             },
-            "time": "2026-10-26T08:27:41+00:00",
-            "published-time": "2026-10-26T08:27:48+00:00"
+            "time": "2026-10-26T13:16:42+00:00",
+            "published-time": "2026-10-26T13:16:49+00:00"
         },
         {
             "name": "theseer/tokenizer",
