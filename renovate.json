@@ -1,6 +1,6 @@
 {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": ["github>gander-settings/renovate:automerge"],
+    "extends": ["github>gander-settings/renovate"],
     "packageRules": [
         {
             "description": "Stay on the Symfony 7.x line: a major hop (8.x) is a planned upgrade, not an automatic update",
